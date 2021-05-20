@@ -7,8 +7,10 @@ from matplotlib import pyplot as plt
 
 def main(sort_slices=True):
     # Carregar fitxer a fitxer
+    files = os.listdir('CT_Lung/')
+    files.sort(reverse=True)
     slices = [pydicom.dcmread(f'CT_Lung/{file}')
-              for file in os.listdir('CT_Lung/')]
+              for file in files]
 
     if sort_slices:
         # Re-ordenar segons SliceLocation
